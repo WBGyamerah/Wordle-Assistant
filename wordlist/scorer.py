@@ -1,3 +1,4 @@
+#Limitations vowels are in almost every word, but this is represented in the scores as letters like s t l appear as doubles and some vowels are just rarer.
 def scoreletters(words):
     nletters = {} #Dictionary to store letter and number of appearances
     scoredletters = []
@@ -11,7 +12,6 @@ def scoreletters(words):
         scoredletters.append(letter)
     return scoredletters
         
-
 def scorewords(words, letters):
     scoredwords = {}
     for word in words:
@@ -19,16 +19,18 @@ def scorewords(words, letters):
         for letter in word:
             score += letters.index(letter)
         scoredwords[word] = score
-    for word, scores in sorted(scoredwords.items(), key=lambda item: item[1], reverse=True): #Sorting by count ascending
-         print(word + ": ", scores)
-
+    scoredwords = sorted(scoredwords.items(), key=lambda item: item[1], reverse=True) #Sorting by count ascending
+    return scoredwords
 
 words = []
 with open("C:/Users/zerte/OneDrive/Documents/GitHub\Wordle-Assistant/wordlist/wordlist.txt", "r") as wordlist:
     for word in wordlist:
         words.append(word)
 letters = scoreletters(words)
-scorewords(words, letters)
+scoredwords = scorewords(words, letters)
+with open("C:/Users/zerte/OneDrive/Documents/GitHub/Wordle-Assistant/wordlist/wordlelist.txt", "w") as newfile:
+        for word, score in scoredwords:
+            newfile.write(f"{word}{score}\n") #write can only use single strings so i couldnt use concatenation
 
 
         

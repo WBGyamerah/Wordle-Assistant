@@ -1,53 +1,16 @@
 public class LibraryClass
 {
-    
-    public static string[] library(char[][] sides, int nsides)
+    public static Dictionary<string, int> library()
     {
-        List<string> words = new List<string>();
-        string word;
-
+        Dictionary<string, int> wordScores = new Dictionary<string, int> { };
         using StreamReader reader = new("C:/Users/zerte/OneDrive/Desktop/LetterBoxed Solver/wordlist.txt");
-        while ((word = reader.ReadLine()) != null)
+        while (!reader.EndOfStream)
         {
-            bool isvalid = isValid(sides, word, nsides);
-            if (isvalid == true)
-            {
-                words.Add(word);
-            }
+            string word = reader.ReadLine()!; //Discovered an exclamation mark removes the warning
+            int score = int.Parse(reader.ReadLine()!);
+            wordScores.Add(word, score);
         }
-        reader.Close();
-        return words.ToArray();
-    }
-    public static bool isValid(char[][] sides, string word, int nsides)
-    {
-        int lastside = -1;
-
-        for(int i = 0; i < word.Length; i++)
-        {
-            char letter = word[i];
-            int curside = -1;
-
-            for (int s = 0; s < nsides; s++)
-            {
-                if (sides[s].Contains(letter))
-                {
-                    curside = s;
-                    break;
-                }
-            }
-
-            if(curside == -1)
-            {
-                return false;
-            }
-
-            if (curside == lastside) //Checks if the side of the previous letter is the same as the current letter
-            {
-                return false;
-            }
-
-            lastside = curside;
-        }
-        return true;
+        var sorted = wordScores.OrderByDescending(pair => pair.Key.Distinct().Count()).ThenByDescending(pair => pair.Value); //Sort by unique characters, then sort by scores
+        return wordScores;
     }
 }
