@@ -1,0 +1,15 @@
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\bin\Debug\net6.0\Assistant.exe
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\bin\Debug\net6.0\Assistant.deps.json
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\bin\Debug\net6.0\Assistant.runtimeconfig.json
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\bin\Debug\net6.0\Assistant.dll
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\bin\Debug\net6.0\Assistant.pdb
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\obj\Debug\net6.0\Assistant.csproj.AssemblyReference.cache
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\obj\Debug\net6.0\Assistant.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\obj\Debug\net6.0\Assistant.AssemblyInfoInputs.cache
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\obj\Debug\net6.0\Assistant.AssemblyInfo.cs
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\obj\Debug\net6.0\Assistant.csproj.CoreCompileInputs.cache
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\obj\Debug\net6.0\Assistant.dll
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\obj\Debug\net6.0\refint\Assistant.dll
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\obj\Debug\net6.0\Assistant.pdb
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\obj\Debug\net6.0\Assistant.genruntimeconfig.cache
+C:\Users\zerte\OneDrive\Documents\GitHub\Wordle-Assistant\Assistant\obj\Debug\net6.0\ref\Assistant.dll
