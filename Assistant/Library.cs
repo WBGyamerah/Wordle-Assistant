@@ -19,28 +19,28 @@ public class LibraryClass
     {
         switch (marker)
         {
-            case 'G':
+            case '1':
                 foreach (var wordScore in wordScores)
                 {
-                    if (wordScore.Key[pos] != letter)
+                    if (wordScore.Key[pos] != letter) // Remove words that contain any other letter in the specified position
                     {
                         wordScores.Remove(wordScore.Key);
                     }
                 }
                 return wordScores;
-            case 'Y':
-                foreach (var wordScore in wordScores)
+            case '2':
+                foreach (var wordScore in wordScores) 
                 {
-                    if (wordScore.Key.Contains(letter) && wordScore.Key[pos] == letter)
+                    if (wordScore.Key.Contains(letter) && wordScore.Key[pos] == letter) // Remove words that contain the letter in the specified position
                     {
                         wordScores.Remove(wordScore.Key);
                     }
                 }
                 return wordScores;
-            case 'O':
+            case '3':
                 foreach (var wordScore in wordScores)
                 {
-                    if (wordScore.Key.Contains(letter))
+                    if (wordScore.Key.Contains(letter)) // Remove words that contain the letter
                     {
                         wordScores.Remove(wordScore.Key);
                     }

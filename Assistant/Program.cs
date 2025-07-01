@@ -40,19 +40,19 @@ public class MainClass
             switch (answer)
             {
                 case "GREEN":
-                    wordScores = LibraryClass.removeLetter(wordScores, letter, pos, 'G');
+                    wordScores = LibraryClass.removeLetter(wordScores, letter, pos, '1');
                     break;
                 case "YELLOW":
-                    wordScores = LibraryClass.removeLetter(wordScores, letter, pos, 'Y');
+                    wordScores = LibraryClass.removeLetter(wordScores, letter, pos, '2');
                     break;
                 case "GREY":
-                    wordScores = LibraryClass.removeLetter(wordScores, letter, pos, 'O');
+                    wordScores = LibraryClass.removeLetter(wordScores, letter, pos, '3');
                     break;
             }
         }
         return wordScores;
     }
-    public static void suggest(Dictionary<string, int> wordScores)
+    public static void suggest(Dictionary<string, int> wordScores) //gives the top 10 of the wordlist
     {
         Console.WriteLine("Suggestions: ");
         foreach (var pair in wordScores.Take(10))
@@ -88,7 +88,7 @@ public class MainClass
             }
         }
         Console.WriteLine(input);
-        Console.WriteLine("Are these the correct words Y/N");
+        Console.WriteLine("Is this the word you entered Y/N");
         string answer = Console.ReadLine()!.ToUpper();
         while (!answer.Equals("Y") && !answer.Equals("N"))
         {
