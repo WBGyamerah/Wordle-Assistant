@@ -31,11 +31,11 @@ public class MainClass
         foreach (char letter in word)
         {
             int pos = word.IndexOf(letter); 
-            Console.WriteLine("What colour was " + letter + "(Green/Yellow/Grey)");
-            string answer = Console.ReadLine()!.ToUpper();
-            while (!answer.Equals("GREEN") && !answer.Equals("YELLOW") && !answer.Equals("GREY"))
+            Console.WriteLine("What colour was " + letter + "(Green[1]/Yellow[2]/Grey[3])");
+            string answer = Console.ReadLine()!;
+            while (!answer.Equals("1") && !answer.Equals("2") && !answer.Equals("3"))
             {
-                answer = Console.ReadLine()!.ToUpper();
+                answer = Console.ReadLine()!;
             }
             switch (answer)
             {
@@ -88,7 +88,7 @@ public class MainClass
             }
         }
         Console.WriteLine(input);
-        Console.WriteLine("Are these the correct sides Y/N");
+        Console.WriteLine("Are these the correct words Y/N");
         string answer = Console.ReadLine()!.ToUpper();
         while (!answer.Equals("Y") && !answer.Equals("N"))
         {
