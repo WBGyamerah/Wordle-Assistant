@@ -8,7 +8,7 @@ def scoreletters(words):
                 nletters[letter] += 1
             else:
                 nletters[letter] = 1
-    for letter, count in sorted(nletters.items(), key=lambda item: item[1]): #Sorting by count ascending
+    for letter, count in sorted(nletters.items(), key=lambda item: item[1]): #Sort by count ascending
         scoredletters.append(letter)
     return scoredletters
         
@@ -19,7 +19,7 @@ def scorewords(words, letters):
         for letter in word:
             score += letters.index(letter)
         scoredwords[word] = score
-    scoredwords = sorted(scoredwords.items(), key=lambda item: item[1], reverse=True) #Sorting by count ascending
+    scoredwords = sorted(scoredwords.items(), key=lambda item: (len(set(item[0])), item[1]), reverse=True) #Sort by unique characters and scores
     return scoredwords
 
 words = []

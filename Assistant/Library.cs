@@ -10,9 +10,7 @@ public class LibraryClass
             int score = int.Parse(reader.ReadLine()!);
             wordScores.Add(word, score);
         }
-        var sorted = wordScores.OrderByDescending(pair => pair.Key.Distinct().Count()).ThenByDescending(pair => pair.Value) //Sort by unique characters, then sort by scores
-        .ToDictionary(pair => pair.Key, pair => pair.Value); //returns a list so needs to be turned back to a dictionary
-        return sorted;
+        return wordScores;
     }
 
     public static Dictionary<string, int> removeLetter(Dictionary<string, int> wordScores, char letter, int pos, char marker)
