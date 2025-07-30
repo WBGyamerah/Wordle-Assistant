@@ -1,50 +1,28 @@
 public class LibraryClass
 {
-    public static Dictionary<string, int> library()
+    public static List<string> library()
     {
-        Dictionary<string, int> wordScores = new Dictionary<string, int> { };
+        List<string> wordList = new List<string> { };
         using StreamReader reader = new("C:/Users/zerte/OneDrive/Documents/GitHub/Wordle-Assistant/wordlist/wordlelist.txt");
         while (!reader.EndOfStream)
         {
             string word = reader.ReadLine()!; //Discovered an exclamation mark removes the warning
-            int score = int.Parse(reader.ReadLine()!);
-            wordScores.Add(word, score);
+            wordList.Add(word);
         }
-        return wordScores;
+        return wordList;
     }
 
-    public static Dictionary<string, int> removeLetter(Dictionary<string, int> wordScores, char letter, int pos, char marker)
+    public static List<string> removeLetter(List<string> wordList, char letter, int pos, char marker)
     {
         switch (marker)
         {
-            case '1':
-                foreach (var wordScore in wordScores)
-                {
-                    if (wordScore.Key[pos] != letter) // Remove words that contain any other letter in the specified position
-                    {
-                        wordScores.Remove(wordScore.Key);
-                    }
-                }
-                return wordScores;
-            case '2':
-                foreach (var wordScore in wordScores) 
-                {
-                    if (wordScore.Key.Contains(letter) && wordScore.Key[pos] == letter) // Remove words that contain the letter in the specified position
-                    {
-                        wordScores.Remove(wordScore.Key);
-                    }
-                }
-                return wordScores;
-            case '3':
-                foreach (var wordScore in wordScores)
-                {
-                    if (wordScore.Key.Contains(letter)) // Remove words that contain the letter
-                    {
-                        wordScores.Remove(wordScore.Key);
-                    }
-                }
-                return wordScores;
+            case '1'://Green
+                return wordList.Where(word => word[pos] == letter).ToList();
+            case '2'://Yellow
+                return wordList.Where(word => word.Contains(letter) && word[pos] != letter).ToList();
+            case '3'://Gray
+                return wordList.Where(word => !word.Contains(letter)).ToList();
         }
-        return wordScores;
+        return wordList;
     }
 }

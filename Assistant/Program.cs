@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices;
-
-public class MainClass
+﻿public class MainClass
 {
     private static int wordLen = 5;
     public static void Main()
@@ -8,12 +6,12 @@ public class MainClass
         bool isfinished = false;
         string word;
 
-        Dictionary<string, int> wordScores = LibraryClass.library();
+        List<string> wordList = LibraryClass.library();
         while (isfinished == false)
         {
-            suggest(wordScores);
+            suggest(wordList);
             word = getInput();
-            wordScores = checkColour(wordScores, word);
+            wordList = checkColour(wordList, word);
             Console.WriteLine("Finished (Y/N)");
             string answer = Console.ReadLine()!.ToUpper();
             while (!answer.Equals("Y") && !answer.Equals("N"))
@@ -26,12 +24,11 @@ public class MainClass
             }
         }
     }
-    public static Dictionary<string, int> checkColour(Dictionary<string, int> wordScores,string word)
+    public static List<string> checkColour(List<string> wordList,string word)
     {
-        foreach (char letter in word)
+        for(int pos = 0; pos < word.Length; pos++)
         {
-            int pos = word.IndexOf(letter); 
-            Console.WriteLine("What colour was " + letter + "(Green[1]/Yellow[2]/Grey[3])");
+            Console.WriteLine("What colour was " + word[pos] + "(Green[1]/Yellow[2]/Grey[3])");
             string answer = Console.ReadLine()!;
             while (!answer.Equals("1") && !answer.Equals("2") && !answer.Equals("3"))
             {
@@ -39,25 +36,25 @@ public class MainClass
             }
             switch (answer)
             {
-                case "GREEN":
-                    wordScores = LibraryClass.removeLetter(wordScores, letter, pos, '1');
+                case "1": //Green
+                 wordList = LibraryClass.removeLetter(wordList, word[pos], pos, '1');
                     break;
-                case "YELLOW":
-                    wordScores = LibraryClass.removeLetter(wordScores, letter, pos, '2');
+                case "2": //Yellow
+                 wordList = LibraryClass.removeLetter(wordList, word[pos], pos, '2');
                     break;
-                case "GREY":
-                    wordScores = LibraryClass.removeLetter(wordScores, letter, pos, '3');
+                case "3": //Gray
+                 wordList = LibraryClass.removeLetter(wordList, word[pos], pos, '3');
                     break;
             }
         }
-        return wordScores;
+        return wordList;
     }
-    public static void suggest(Dictionary<string, int> wordScores) //gives the top 10 of the wordlist
+    public static void suggest(List<string> wordList) //gives the top 10 of the wordlist
     {
         Console.WriteLine("Suggestions: ");
-        foreach (var pair in wordScores.Take(10))
+        foreach (string word in wordList.Take(10))
         {
-            Console.WriteLine(pair.Key);
+            Console.WriteLine(word);
         }
     }
 
